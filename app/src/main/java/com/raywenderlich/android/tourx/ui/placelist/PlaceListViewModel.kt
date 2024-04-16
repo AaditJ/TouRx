@@ -34,14 +34,17 @@ import androidx.hilt.lifecycle.ViewModelInject
 import com.raywenderlich.android.tourx.BaseViewModel
 import com.raywenderlich.android.tourx.entities.Places
 import com.raywenderlich.android.tourx.networking.ApiService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
+@HiltViewModel
 class PlaceListViewModel
-@ViewModelInject constructor(private val service: ApiService) : BaseViewModel<Places>() {
+@Inject constructor(private val service: ApiService) : BaseViewModel<Places>() {
 
   /**
    * Uses [Observable.ambWith] to combine two [Observable] so only the first [Observable] to emit gets relayed.

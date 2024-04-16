@@ -5,13 +5,12 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-  compileSdkVersion 29
-  buildToolsVersion "29.0.3"
+  compileSdkVersion 34
 
   defaultConfig {
     applicationId "com.raywenderlich.android.tourx"
     minSdkVersion 22
-    targetSdkVersion 29
+    targetSdkVersion 33
     versionCode 1
     versionName "1.0"
   }
@@ -29,6 +28,7 @@ android {
   kotlinOptions {
     jvmTarget = JavaVersion.VERSION_1_8
   }
+  namespace 'com.raywenderlich.android.tourx'
 }
 
 dependencies {

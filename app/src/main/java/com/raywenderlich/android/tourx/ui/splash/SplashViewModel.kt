@@ -37,14 +37,17 @@ import com.raywenderlich.android.tourx.LOG_TAG
 import com.raywenderlich.android.tourx.database.AppDatabase
 import com.raywenderlich.android.tourx.entities.Cost
 import com.raywenderlich.android.tourx.entities.Places
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
+@HiltViewModel
 class SplashViewModel
-@ViewModelInject constructor(private val database: AppDatabase) : BaseViewModel<Nothing>() {
+ @Inject constructor(private val database: AppDatabase) : BaseViewModel<Nothing>() {
 
   fun populateData(places: Places, costs: List<Cost>) {
     val insertPlaceSource = database.getPlaceDao().bulkInsert(places)
